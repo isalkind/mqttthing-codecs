@@ -53,9 +53,7 @@ function init( params ) {
     }
 
     /**
-     * Encode heating/cooling state for sending to MQTT. We also set the target temperature
-     * appropriately when heat or cool is selected. Thermostat keeps seperate target temperature
-     * values for heating and cooling.
+     * Encode heating/cooling state for sending to MQTT.
      * @param {*} message Heating/cooling state to encode
      * @param {*} info 
      * @param {*} output 
@@ -87,8 +85,7 @@ function init( params ) {
     }
 
     /**
-     * Encode the target temperature. Publish the heating or cooling
-     * threshold temperature depending on the heating/cooling state instead.
+     * Encode the target temperature.
      * @param {*} message Target temperature to encode
      * @param {*} info 
      * @param {*} output 
@@ -175,7 +172,7 @@ function init( params ) {
     }
 
     /**
-     * Encode the cooling threshold temperature for sending.
+     * Encode the cooling threshold temperature for sending. Not used.
      * @param {*} message Local threshold cooling temperature
      * @param {*} info 
      * @param {*} output 
@@ -183,13 +180,11 @@ function init( params ) {
      */
     function encodeCoolingThresholdTemperature(message, info, output) { // eslint-disable-line no-unused-vars
         return undefined;
-        // theCoolingThresholdTemperature = encodeTemperature(message, info, output);
-        // return theCoolingThresholdTemperature;
     }
 
     /**
      * Decode the received cooling threshold temperature. We also notify
-     * the target temperature if the current heating/cooling state is cooling.
+     * the target temperature.
      * @param {*} message Recieved cooling threshold temperature
      * @param {*} info 
      * @param {*} output 
@@ -202,7 +197,7 @@ function init( params ) {
     }
 
     /**
-     * Encode the heating threshold temperature for sending.
+     * Encode the heating threshold temperature for sending. Not used.
      * @param {*} message Local threshold heating temperature
      * @param {*} info 
      * @param {*} output 
@@ -210,13 +205,11 @@ function init( params ) {
      */
     function encodeHeatingThresholdTemperature(message, info, output) { // eslint-disable-line no-unused-vars
         return undefined;
-        // theHeatingThresholdTemperature = encodeTemperature(message, info, output);
-        // return theHeatingThresholdTemperature;
     }
 
     /**
      * Decode the received heating threshold temperature. We also notify
-     * the target temperature if the current heating/cooling state is heating.
+     * the target temperature.
      * @param {*} message Recieved heating threshold temperature
      * @param {*} info 
      * @param {*} output 
