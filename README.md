@@ -2,9 +2,10 @@
 
  Codecs for [homebridge-mqttthing](https://github.com/arachnetech/homebridge-mqttthing)
 
-* th6320zw-codec.js - **Honeywell T6 Pro Z-Wave (TH6320ZW)**
-* yrx226-codec.js - **Yale Assure Lock (YRD226) w/ z-wave module**
-  * These Yale lock models *may* also be compatible, but have not been verified: YRC226 / YRC246 / YRD256 / YRC256 / YRD446
+- th6320zw-codec.js - **Honeywell T6 Pro Z-Wave (TH6320ZW)**
+- yrx226-codec.js - **Yale Assure Lock (YRD226) w/ z-wave module**
+  - These Yale lock models *may* also be compatible, but have not been verified: YRC226 / YRC246 / YRD256 / YRC256 / YRD446
+- zse44-codec.js - **Zooz Temperature Humidity XS Sensor (ZSE44)**
 
 ## Install
 
@@ -72,3 +73,24 @@ Example with base topic name of `zwave/Entryway/Lock`, replace as appropriate.
     "accessory": "mqttthing"
 }
 ````
+
+### zse44-codec.js
+
+Example with base topic name of `zwave/Bathroom/Sensor`, replace as appropriate.
+
+```json
+{
+    "type": "temperatureSensor",
+    "name": "Bathroom Temperature Sensor",
+    "codec": "zse44-codec.js",
+    "topics": {
+        "getOnline": "zwave/Bathroom/Sensor/status",
+        "getBatteryLevel": "zwave/Bathroom/Sensor/128/0/level",
+        "getCurrentTemperature": "zwave/Bathroom/Sensor/49/0/Air_temperature",
+        "getStatusLowBattery": "zwave/Bathroom/Sensor/128/0/isLow"
+    },
+    "onlineValue": "true",
+    "offlineValue": "false",
+    "accessory": "mqttthing"
+}
+```
